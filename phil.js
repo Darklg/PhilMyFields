@@ -2,6 +2,7 @@
 function phil_test(elname, elvalues, type) {
 	if(type != 'or') type = 'and';
 	var retour = (type == 'or') ? 0 : 1;
+	elname = elname.toLowerCase();
 	
 	for (var i in elvalues){
 		if(type == 'or' && elname.indexOf(elvalues[i]) >= 0 || elname == elvalues[i]) {
