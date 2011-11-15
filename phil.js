@@ -121,7 +121,7 @@ function phil_my_fields(){
 			el.value = phil_random('pseudo');
 		} else if(phil_test(el.name,['code','postal','zipcode'],'or') || el.name == 'cp'){
 			el.value = '75001';
-		} else if(phil_test(el.name,['telephone','tel_','mobile'],'or') || el.name == 'tel'){
+		} else if(phil_test(el.name,['telephone','tel_','mobile','fax'],'or') || el.name == 'tel'|| el.name == 'fax'){
 			el.value = '014'+phil_random_string('digit',7);
 		} else if(phil_test(el.name,['city','ville'],'or')){
 			el.value = 'Paris';
@@ -131,7 +131,9 @@ function phil_my_fields(){
 			el.value = phil_random('prenom');
 		} else if(phil_test(el.name,['lastname','name','nom'],'or')){
 			el.value = phil_random('nom');
-		} else if(phil_test(el.name,['adresse','address'],'or')){
+		} else if(phil_test(el.name,['societe','company'],'or')){
+			el.value = phil_random('nom')+' Inc.';
+		} else if(phil_test(el.name,['adresse','address','street'],'or')){
 			el.value = phil_random('adresse');
 		} else if(el.type == 'password'){
 			el.value = 'phil1phil';
