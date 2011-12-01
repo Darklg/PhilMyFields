@@ -95,6 +95,7 @@ function phil_my_fields(){
 	var phil_these = [];
 	var phil_inputs = document.getElementsByTagName('input');
 	var phil_txta = document.getElementsByTagName('textarea');
+	var phil_slct = document.getElementsByTagName('select');
 
 	for (var i in phil_inputs){
 		nm = phil_inputs[i].name;
@@ -106,10 +107,15 @@ function phil_my_fields(){
 	}
 	
 	for (var i in phil_txta){
-		
 		var txt_tmp = phil_content_spinning('{Bonjour|Hello}, {je vous contacte|je voudrais vous parler}');
-		
 		phil_txta[i].value = txt_tmp;
+	}	
+	
+	for (var i in phil_slct){
+		nb_opt = phil_slct[i].length;
+		if(nb_opt > 0){
+			phil_slct[i].selectedIndex = Math.floor(Math.random() * nb_opt);
+		}
 	}
 	
 	for (var i in phil_these){
@@ -119,7 +125,7 @@ function phil_my_fields(){
 			el.value = phil_random('email');
 		} else if(phil_test(el.name,['pseudo','username','author'],'or')){
 			el.value = phil_random('pseudo');
-		} else if(phil_test(el.name,['code','postal','zipcode'],'or') || el.name == 'cp'){
+		} else if(phil_test(el.name,['code','postal','zipcode','zip'],'or') || el.name == 'cp'){
 			el.value = '75001';
 		} else if(phil_test(el.name,['cc_number'],'or') || el.name == 'cp'){
 			el.value = '4111111111111111';
@@ -127,6 +133,8 @@ function phil_my_fields(){
 			el.value = '014'+phil_random_string('digit',7);
 		} else if(phil_test(el.name,['city','ville'],'or')){
 			el.value = 'Paris';
+		} else if(phil_test(el.name,['country'],'or')){
+			el.value = 'France';
 		} else if(phil_test(el.name,['siteweb','url'],'or')){
 			el.value = 'http://darklg.me';
 		} else if(phil_test(el.name,['firstname','prenom','first_name'],'or')){

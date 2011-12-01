@@ -32,6 +32,13 @@ foreach($uri_tmp as $uri_part){
 				<input type="text" name="adresse" maxlength="35" value="" class="input180" size="18" />
 			</div>
 			<div>
+				<select name="test" id="aa">
+				    <option value="0">!!</option>
+				    <option value="1">…</option>
+				    <option value="4">…</option>
+				</select>
+			</div>
+			<div>
 				<textarea></textarea>
 			</div>
 		</form>
