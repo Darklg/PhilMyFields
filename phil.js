@@ -132,7 +132,7 @@ function phil_my_fields(){
 			el.value = phil_random('pseudo');
 		} else if(phil_test(el.name,['cc_number'],'or') || el.name == 'cb'){
 			el.value = '4111111111111111';
-		} else if(phil_test(el.name,['telephone','tel_','mobile','fax'],'or') || el.name == 'tel'|| el.name == 'fax'){
+		} else if(phil_test(el.name,['telephone','tel_','_tel','mobile','fax'],'or') || el.name == 'tel'|| el.name == 'fax'){
 			el.value = '014'+phil_random_string('digit',7);
 		} else if(phil_test(el.name,['city','ville'],'or')){
 			el.value = 'Paris';
