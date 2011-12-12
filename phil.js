@@ -96,6 +96,7 @@ function phil_my_fields(){
 	var phil_inputs = document.getElementsByTagName('input');
 	var phil_txta = document.getElementsByTagName('textarea');
 	var phil_slct = document.getElementsByTagName('select');
+	var phil_mail = '';
 
 	for (var i in phil_inputs){
 		nm = phil_inputs[i].name;
@@ -122,11 +123,13 @@ function phil_my_fields(){
 		el = phil_these[i];
 		// Champ email
 		if(el.type == 'email' || phil_test(el.name,['email','mail'],'or')){
-			el.value = phil_random('email');
+			// On conserve le mail en memoire ( confirmation email, etc )
+			if(phil_mail == ''){
+				phil_mail = phil_random('email');
+			}
+			el.value = phil_mail;
 		} else if(phil_test(el.name,['pseudo','username','author'],'or')){
 			el.value = phil_random('pseudo');
-		} else if(phil_test(el.name,['code','postal','zipcode','zip'],'or') || el.name == 'cp'){
-			el.value = '75001';
 		} else if(phil_test(el.name,['cc_number'],'or') || el.name == 'cp'){
 			el.value = '4111111111111111';
 		} else if(phil_test(el.name,['telephone','tel_','mobile','fax'],'or') || el.name == 'tel'|| el.name == 'fax'){
@@ -143,8 +146,10 @@ function phil_my_fields(){
 			el.value = phil_random('nom');
 		} else if(phil_test(el.name,['societe','company'],'or')){
 			el.value = phil_random('nom')+' Inc.';
-		} else if(phil_test(el.name,['adresse','address','street'],'or')){
+		} else if(phil_test(el.name,['adresse','address','street','adr'],'or')){
 			el.value = phil_random('adresse');
+		} else if(phil_test(el.name,['code','postal','zipcode','zip','cp'],'or') || el.name == 'cp'){
+			el.value = '75001';
 		} else if(el.type == 'password'){
 			el.value = 'phil1phil';
 		}
