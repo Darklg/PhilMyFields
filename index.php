@@ -15,10 +15,26 @@ foreach($uri_tmp as $uri_part){
 	<head>
 		<meta charset="UTF-8" />
 		<title>Phil my Fields</title>
+		<script src="phil.js"></script>
+		
+		<style>
+		label {display:block;}
+		</style>
 	</head>
 	<body>
-		<a href="javascript:if(typeof phil_my_fields != 'function'){function phillmyurls(url){var s=document.createElement('script');s.src=url+'?v='+Math.round(new Date().getTime()/1000);var x=document.getElementsByTagName('form')[0];x.parentNode.insertBefore(s,x);}phillmyurls('<?php echo $url_finale; ?>phil.js');}else{phil_my_fields();}">PhilMyFields</a>
+		<h1>Phil my Fields</h1>
 		
+		<p>PhilMyFields est un bookmarklet permettant de remplir un formulaire d'inscription avec des données aléatoires. Et une adresse @<a href="http://yopmail.com">yopmail.com</a></p>
+		
+		<p>
+			Clic-droit, puis ajouter aux favoris (ou bien un glisser-déposer vers votre barre de favoris) :
+			<a href="javascript:if(typeof phil_my_fields != 'function'){function phillmyurls(url){var s=document.createElement('script');s.src=url+'?v='+Math.round(new Date().getTime()/1000);var x=document.getElementsByTagName('form')[0];x.parentNode.insertBefore(s,x);}phillmyurls('<?php echo $url_finale; ?>phil.js');}else{phil_my_fields();}">PhilMyFields</a>
+		</p>
+		
+		<p>
+			<button onclick="javascript:phil_my_fields();">Essayez-moi !</button>
+		</p>
+
 		<form action="" method="post">
 			<div>
 				<label for="username">Username</label>
@@ -29,17 +45,20 @@ foreach($uri_tmp as $uri_part){
 				<input name="email" id="email" type="email" />
 			</div>
 			<div>
+				<label for="adresse">Adresse</label>
 				<input type="text" name="adresse" maxlength="35" value="" class="input180" size="18" />
 			</div>
 			<div>
-				<select name="test" id="aa">
-				    <option value="0">!!</option>
-				    <option value="1">…</option>
-				    <option value="4">…</option>
+				<label for="test_select">Valeur</label>
+				<select name="test" id="test_select">
+				    <option value="0">Trois</option>
+				    <option value="1">Deux</option>
+				    <option value="4">Une autre valeur</option>
 				</select>
 			</div>
 			<div>
-				<textarea></textarea>
+				<label for="message">Message</label>
+				<textarea id="message" rows="3" cols="30"></textarea>
 			</div>
 		</form>
 		
