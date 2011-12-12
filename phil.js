@@ -130,7 +130,7 @@ function phil_my_fields(){
 			el.value = phil_mail;
 		} else if(phil_test(el.name,['pseudo','username','author'],'or')){
 			el.value = phil_random('pseudo');
-		} else if(phil_test(el.name,['cc_number'],'or') || el.name == 'cp'){
+		} else if(phil_test(el.name,['cc_number'],'or') || el.name == 'cb'){
 			el.value = '4111111111111111';
 		} else if(phil_test(el.name,['telephone','tel_','mobile','fax'],'or') || el.name == 'tel'|| el.name == 'fax'){
 			el.value = '014'+phil_random_string('digit',7);
